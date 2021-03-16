@@ -101,6 +101,7 @@ pre {
   height: 4px;
   background: #424242;
   display: inline-block;
+  /* position: absolute; */
 }
 
 /* *::selection {

@@ -27,10 +27,14 @@
 }
 
 :root {
-  font-size: 16px;
+  font-size: 18px;
   --gray30:#212121;
   --gray20:#212429;
   --gray10:#616161;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -44,10 +48,6 @@ body {
   margin-bottom: 64px;
 } */
 
-hr {
-  margin: 64px;
-}
-
 a {
   color: var(--gray30);
 }
@@ -55,7 +55,17 @@ a {
 header {
   /* --gray10: red; */
   font-size: 14px;
+  width: 188px;
   color: var(--gray10);
+  /* position: relative; */
+  position: absolute;
+  top: 425px;
+  left: -232px;
+  /* top: 357px;
+  left: -434px; */
+  z-index: 1;
+  /* position: fixed;
+  position: sticky; */
 }
 
 header a {
@@ -67,14 +77,24 @@ header a:hover {
   color: var(--gray30);
 }
 
-details summary {
+nav details summary {
   font-weight: bold;
+  line-height: 24px;
+}
+
+header li{
+  margin-bottom: 16px;
 }
 
 h1 {
   font-size: 60px;
   margin-top: 64px;
   margin-bottom: 16px;
+  font-weight: normal;
+}
+
+hr {
+  margin: 64px 0;
 }
 
 h2 {
@@ -88,19 +108,56 @@ h3 {
   margin-top: 16px;
   margin-bottom: 24px;
   font-weight: normal;
+  position: sticky;
 }
 
 pre {
   background: #FEC62E;
+  padding: 40px;
+  font-family: 'Roboto';
+  line-height: 24px;
 }
 
 blockquote {
+  font-size: 24px;
   margin: 32px 0;
+  padding-left: 16px;
+  line-height: 24px;
+  /* border: 10px solid red; */
+  border-left: 4px solid var(--gray30);
+}
+
+blockquote span {
+  color: var(--gray10);
+}
+
+blockquote span::before {
+  content: '-';
+}
+
+.header {
+  /* border: 1px solid red; */
+  /* position: sticky;
+  top: 0; */
+}
+
+.header-content{
+  position: relative;
 }
 
 .hero {
   background-image: linear-gradient(to top, rgba(255, 255, 255, .3), transparent), url('../images/pattern.png');
   height: 350px;
+}
+
+.main{
+  /* border: 1px solid red; */
+  /* background: purple; */
+}
+
+.wrapper{
+  width: 902px;
+  margin: auto;
 }
 
 .section-content:last-of-type {
@@ -127,20 +184,26 @@ blockquote {
   counter-reset: titleList;
 }
 
-.section-content h3{
-  counter-increment: titleList;
+.section-content h3::before {
+  content: counter(titleList, decimal) '. ';
 }
 
-.section-content h3::before {
-  content: counter(titleList, decimal);
+.section-content h3{
+  counter-increment: titleList;
+
+  padding-bottom: 8px;
 }
 
 .section-content h3::after {
   content: '';
   width: 80px;
   height: 4px;
-  background: #424242;
+  background: var(--gray30);
   display: inline-block;
+  position: absolute;
+  left: 0;
+  /* right: 0; */
+  bottom: 0;
 }
 
 /* *::selection {
